@@ -1,0 +1,61 @@
+#container01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 94%;
+}
+
+#container01 button {
+  cursor: pointer;
+  background-color: #72467c;
+  border: 1px solid white;
+  border-radius: 30px;
+  color: white;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 12px;
+}
+
+#container01 .create-button:hover {
+  background-color: #682975;
+}
+
+.custom-table {
+  border-collapse: collapse;
+  width: 94%;
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid #72467c;
+  padding: 8px;
+  text-align: center;
+}
+
+.custom-table th {
+  background-color: #72467c;
+  color: white;
+}
+
+.show-button, .edit-button, .delete-button {
+  color: black;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.custom-table i {
+  font-size: 16px;
+}
+
+#contTableAdmin .alert {
+  margin: 10px 35px;
+  padding: 20px;
+  background-color: #F9A9A9;
+  width: 94%;
+  border: 1px solid #d38686;
+  border-radius: 5px;
+  color: #B30000;
+  font-weight: bold;
+}
+

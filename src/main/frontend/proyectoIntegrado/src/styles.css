@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#mainAdmin {
+  display: flex;
+}
+
+#contTableAdmin {
+  display: flex;
+  flex-direction: column;
+  width: 2000px;
+}
+
+#contTableAdmin h1 {
+  margin: 25px 35px;
+}
+
+#contTableAdmin table {
+  margin-left: 35px;
+}

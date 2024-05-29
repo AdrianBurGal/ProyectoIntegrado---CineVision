@@ -1,0 +1,116 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  position: relative;
+  background: rgba(16, 15, 15, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+  z-index: 2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-left: 100px;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #CC3333;
+}
+
+#logo {
+  padding: 0 60px;
+  color: white;
+  text-decoration: none;
+}
+
+#logo a {
+  text-decoration: none;
+}
+
+#items {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+}
+
+#items #shopTickets {
+  font-size: 25px;
+  padding: 0 40px 0 10px;
+  color: #CC3333;
+}
+
+i {
+  color: white;
+}
+
+#logo i {
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+@font-face {
+  font-family: 'Feta Morgana';
+  src: url('./../../../../assets/Feta Morgana.otf') format('opentype');
+}
+
+#logo span {
+  font-family: 'Feta Morgana', sans-serif;
+  color: white;
+  font-size: 25px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-weight: bold;
+  border: 2px solid white;
+  background-color: white;
+  cursor: pointer;
+}
+
+button i {
+  margin-right: 10px;
+  color: #999;
+}
+
+button#register {
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+}
+
+#total {
+  color: black;
+  padding: 0 5px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  top: -10px;
+  left: -55px;
+  font-size: 13px;
+}

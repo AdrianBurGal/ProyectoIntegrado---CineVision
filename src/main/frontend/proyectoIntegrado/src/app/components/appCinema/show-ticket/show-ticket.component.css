@@ -1,0 +1,86 @@
+#rightTicket {
+  position: relative;
+  height: 420px;
+}
+
+#rightTicket::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#rightTicket::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/*******************************************************************************/
+
+#ticket {
+  display: flex;
+  border: 1px solid black;
+  height: 150px;
+  width: 670px;
+  margin: 30px;
+}
+
+#ticket #leftTicket {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-size: 12px;
+}
+
+#ticket #leftTicket img {
+  width: 150px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+#ticket #rightTicket {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px 0 5px 0;
+  height: 100%;
+  width: 100%;
+  color: white;
+  position: relative;
+}
+
+#ticket h3 {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+#ticket #contDetails {
+  display: flex;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+#ticket #contDetails .details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+}
+
+#ticket .details span {
+  font-size: 18px;
+  font-weight: bold;
+}
+

@@ -1,4 +1,6 @@
 export interface Seat {
+  id: number;
   row: number;
-  column: number;
+  seat: number;
+  isReserved: boolean;
 }

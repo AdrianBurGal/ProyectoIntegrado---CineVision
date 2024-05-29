@@ -1,0 +1,28 @@
+#background {
+  background-image: url('./../../../../assets/popcorn.webp');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  height: 500px;
+}
+
+#contHome {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 40px 70px;
+  color: black;
+}
+
+#contHome .header {
+  border-left: 3px solid #CC3333;
+  padding: 20px;
+}
+
+#contHome .contFilms {
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+  margin-top: 30px;
+}

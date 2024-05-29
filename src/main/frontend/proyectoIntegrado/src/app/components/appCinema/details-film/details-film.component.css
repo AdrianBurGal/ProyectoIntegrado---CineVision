@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+#background {
+  position: relative;
+  height: 420px;
+}
+
+#background::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/**********************************************************************************/
+
+#contDetailFilm {
+  display: flex;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  margin: 40px 70px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  gap: 10px;
+  color: black;
+  font-size: 16px;
+  text-align: justify;
+}
+
+#contDetailFilm #contPhoto {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+#contDetailFilm #contPhoto img {
+  height: 480px;
+  width: 350px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
+}
+
+#contDetailFilm #infoFilm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: white;
+  font-size: 26px;
+}
+
+#contDetailFilm #infoFilm .title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  margin: 20px 0;
+  letter-spacing: 1px;
+}
+
+#contDetailFilm #infoFilm #score {
+  color: yellow;
+  font-size: 20px;
+}
+
+#contDetailFilm #infoFilm #details {
+  margin-top: 47px;
+}
+
+#contDetailFilm #infoFilm button {
+  width: max-content;
+  background-color: #72467c;
+  color: white;
+  padding: 15px 20px;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#contDetailFilm #infoFilm button i {
+  margin-right: 15px;
+}
+
+#contDetailFilm #infoFilm #details #director, #actor, #genre {
+  color: #525252;
+  font-weight: bold;
+}
+
+#contDetailFilm #infoFilm #details #contDirector {
+  display: flex;
+  gap: 162px;
+  margin-bottom: 10px;
+}
+
+#contDetailFilm #infoFilm #details #contActor {
+  display: flex;
+  gap: 170px;
+  margin-bottom: 10px;
+}
+
+#contDetailFilm #infoFilm #details #nameDirector, #namesActor, #nameGenre {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+#contDetailFilm #schedule {
+  margin: 340px 20px 0;
+  color: black;
+  font-size: 16px;
+}
+
+#contDetailFilm #schedule .time {
+  background-color: #72467c;
+  color: white;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+#contDetailFilm #schedule .time i {
+  margin-right: 10px;
+}

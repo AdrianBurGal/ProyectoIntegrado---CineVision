@@ -1,0 +1,8 @@
+#mainAdmin {
+  display: flex;
+}
+
+#tableAdmin {
+  display: flex;
+  flex-direction: column;
+}

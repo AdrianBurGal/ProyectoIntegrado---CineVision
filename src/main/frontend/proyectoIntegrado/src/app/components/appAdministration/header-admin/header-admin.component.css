@@ -1,0 +1,41 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: 70px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+}
+
+#infoUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#infoUser img {
+  border: 1px solid white;
+  border-radius: 50px;
+  max-width: 45px;
+}
+
+#infoUser #nameUser {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#infoUser h6 {
+  color: #72467c;
+}
+
+#infoUser p {
+  font-size: 14px;
+}
+
+#infoUser i {
+  font-size: 20px;
+  padding: 30px 40px 30px 30px;
+}
+
+/*****************************************************************************/
+

@@ -1,10 +1,8 @@
 import {inject, Injectable} from "@angular/core";
 import {Ticket} from "../models/Ticket";
 import {TicketService} from "./ticket.service";
-import {tick} from "@angular/core/testing";
-import {Purchase} from "../models/Purchase";
-import {BehaviorSubject, Observable} from "rxjs";
 import {PurchaseService} from "./purchase.service";
+import {Seat} from "../models/Seat";
 
 @Injectable({
   providedIn: 'root',
@@ -21,19 +19,30 @@ export class CartService {
   }
 
   addToCart(ticket: Ticket) {
-    if (!this.listTickets.has(ticket.idTicket)) {
-      this.listTickets.set(ticket.idTicket, []);
+    if (this.getTicketsShop() < 10) {
+      if (!this.listTickets.has(ticket.idTicket)) {
+        this.listTickets.set(ticket.idTicket, []);
+      }
+      this.listTickets.get(ticket.idTicket)?.push(ticket);
+      this.updatePurchase();
     }
-    this.listTickets.get(ticket.idTicket)?.push(ticket);
-    this.updatePurchase();
   }
 
   getItems() {
     return this.listTickets;
   }
 
+  getTicketsShop() {
+    let totalTickets = 0;
+    this.listTickets.forEach(ticketArray => {
+      totalTickets += ticketArray.length;
+    });
+    return totalTickets;
+  }
+
   clearCart() {
     this.listTickets.clear();
+    this.updatePurchase();
   }
 
   addQuantity(ticketId: number) {
@@ -58,11 +67,9 @@ export class CartService {
 
   updatePurchase() {
     const purchase = this.purchaseService.getPurchase();
-    purchase.tickets = [];
-    for (const tickets of this.listTickets.values()) {
-      for (const ticket of tickets) {
-        purchase.tickets.push(ticket);
-      }
+    purchase.tickets = new Map<number, Ticket[]>();
+    for (const [key, tickets] of this.listTickets.entries()) {
+      purchase.tickets.set(key, tickets);
     }
     purchase.total = this.getTotalPurchase();
     this.purchaseService.setPurchase(purchase);
@@ -77,5 +84,4 @@ export class CartService {
     }
     return this.totalPurchase;
   }
-
 }

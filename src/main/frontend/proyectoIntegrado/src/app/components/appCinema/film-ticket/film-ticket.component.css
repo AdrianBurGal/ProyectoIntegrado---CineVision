@@ -1,0 +1,73 @@
+#contMovieTicket {
+  display: flex;
+  margin: 40px 70px;
+  gap: 50px;
+}
+
+/**********************************************************************/
+
+#showDetailsTickets {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h1 {
+  font-size: 30px;
+  color: #72467c;
+}
+
+#showDetailsTickets #contInfoMovie {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#contInfoMovie #infoMovie {
+  display: flex;
+  gap: 20px;
+  padding: 25px 0;
+  border: 1px solid #cecece;
+  border-left: 0;
+  border-right: 0;
+}
+
+#contInfoMovie #infoMovie img {
+  width: 85px;
+  height: 110px;
+  object-fit: cover;
+}
+
+#contInfoMovie #infoMovie #details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#contInfoMovie #infoMovie #details .container {
+  display: flex;
+  gap: 50px;
+  font-size: 16px;
+}
+
+#contInfoMovie #infoMovie #details #tickets {
+  display: flex;
+  flex-direction: column;
+}
+
+#contInfoMovie #infoMovie #details h4 {
+  width: 50px;
+}
+
+#contInfoMovie #totalPay {
+  font-size: 26px;
+}
+
+#showTickets {
+  display: flex;
+}
+
+#showTickets #ticketName {
+  width: 190px;
+}
+

@@ -5,5 +5,5 @@ export interface Purchase {
   film: Film;
   time: string;
   total: number;
-  tickets: Ticket[];
+  tickets: Map<number, Ticket[]>;
 }

@@ -1,0 +1,40 @@
+h1 {
+  font-size: 30px;
+  color: #72467c;
+}
+
+#contPriceTickets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#priceTickets {
+  display: flex;
+  flex-direction: column;
+}
+
+#priceTickets .contPrice {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #cecece;
+}
+
+#priceTickets .contPrice p {
+  width: 200px;
+}
+
+#priceTickets .contPrice .name {
+  font-weight: bold;
+}
+
+#priceTickets .contPrice button {
+  padding: 7px 12px;
+  background-color: #72467c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+}
