@@ -1,18 +1,20 @@
 import {Injectable} from "@angular/core";
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {LoginService} from "./login.service";
+import {LoginService} from "../login.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class JwtInterceptorService implements HttpInterceptor {
-
-  constructor(private loginService: LoginService) {
-  }
-
+  
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let token: String = this.loginService.userToken;
+    // @ts-ignore
+    return undefined;
+  }
+  /*
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let token: String = this.loginService.currentUserTokenValue;
 
     if (token != "") {
       req = req.clone({
@@ -24,5 +26,5 @@ export class JwtInterceptorService implements HttpInterceptor {
       })
     }
     return next.handle(req);
-  }
+  }*/
 }
