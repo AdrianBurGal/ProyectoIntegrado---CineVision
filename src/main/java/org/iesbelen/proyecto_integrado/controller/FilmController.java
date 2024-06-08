@@ -2,13 +2,11 @@ package org.iesbelen.proyecto_integrado.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iesbelen.proyecto_integrado.domain.Film;
-import org.iesbelen.proyecto_integrado.domain.Schedule;
 import org.iesbelen.proyecto_integrado.service.FilmService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Slf4j
 @RestController
@@ -51,5 +49,4 @@ public class FilmController {
         System.out.println("Borrando película con id: " + id);
         this.filmService.delete(id);
     }
-
 }

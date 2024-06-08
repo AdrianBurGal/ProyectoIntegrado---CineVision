@@ -13,28 +13,29 @@ import {NgForOf} from "@angular/common";
   standalone: true,
   imports: [HeaderComponent, NgForOf],
   template: `
-      <div id="background" [style.background-image]="'url(' + backgroundImageUrl + ')'"
-           [style.background-size]="'cover'" [style.background-position]="'center top'">
+      <div id="background">
           <app-header></app-header>
       </div>
 
-      <div *ngFor="let ticket of getTickets()">
-          <div id="ticket">
-              <div id="leftTicket">
-                  <p>ROW: {{ ticket.seat.row }} </p>
-                  <p>SEAT: {{ ticket.seat.seat }} </p>
-                  <img src="./../../../../assets/barsCode.webp">
-              </div>
+      <div id="contTickets">
+          <div *ngFor="let ticket of getTickets()">
+              <div id="ticket">
+                  <div id="leftTicket">
+                      <p>ROW: {{ ticket.seat.row }} </p>
+                      <p>SEAT: {{ ticket.seat.seat }} </p>
+                      <img src="./../../../../assets/barsCode.webp">
+                  </div>
 
-              <div id="rightTicket" [style.background-image]="'url(' + backgroundImageUrl + ')'"
-                   [style.background-size]="'cover'" [style.background-position]="'center top'">
+                  <div id="rightTicket" [style.background-image]="'url(' + backgroundImageUrl + ')'"
+                       [style.background-size]="'cover'" [style.background-position]="'center top'">
 
-                  <h3 id="title">{{film.title.toUpperCase()}}</h3>
-                  <div id="contDetails">
-                      <div class="details"><p>ROW</p> <span> {{ ticket.seat.row }} </span></div>
-                      <div class="details"><p>SEAT</p> <span> {{ ticket.seat.seat }} </span></div>
-                      <div class="details"><p>DATE</p><span> 26may </span></div>
-                      <div class="details"><p>TIME</p><span> {{purchase.time}} </span></div>
+                      <h3 id="title">{{film.title.toUpperCase()}}</h3>
+                      <div id="contDetails">
+                          <div class="details"><p>ROW</p><span> {{ ticket.seat.row }} </span></div>
+                          <div class="details"><p>SEAT</p><span> {{ ticket.seat.seat }} </span></div>
+                          <div class="details"><p>DATE</p><span> {{ formatDate(purchase.date) }} </span></div>
+                          <div class="details"><p>TIME</p><span> {{ purchase.time }} </span></div>
+                      </div>
                   </div>
               </div>
           </div>
@@ -64,5 +65,13 @@ export class ShowTicketComponent {
       allTickets.push(...ticket)
     });
     return allTickets;
+  }
+
+  formatDate(date: String) {
+    const parts = date.split(',');
+    if (parts.length >= 2) {
+      return parts[1].trim();
+    }
+    return date;
   }
 }

@@ -1,3 +1,14 @@
+#background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#contTickets {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0;
+  justify-content: center;
+}
+
 #rightTicket {
   position: relative;
   height: 420px;
@@ -28,7 +39,7 @@
   border: 1px solid black;
   height: 150px;
   width: 670px;
-  margin: 30px;
+  margin: 10px 0 0 15px;
 }
 
 #ticket #leftTicket {
@@ -36,10 +47,10 @@
   flex-direction: column;
   padding: 20px;
   font-size: 12px;
+  width: 210px;
 }
 
 #ticket #leftTicket img {
-  width: 150px;
   height: 60px;
   margin-top: 10px;
 }

@@ -25,7 +25,6 @@ import {ActorService} from "../../../../services/actor.service";
                   <tr>
                       <th>ID</th>
                       <th>Actor</th>
-                      <th>Photo</th>
                       <th>Actions</th>
                   </tr>
                   </thead>
@@ -34,7 +33,6 @@ import {ActorService} from "../../../../services/actor.service";
                   <tr *ngFor="let actor of actorFilter ">
                       <td>{{ actor.idActor }}</td>
                       <td>{{ actor.nameActor }}</td>
-                      <td>{{ actor.photoUrl }}</td>
                       <td>
                           <button class="show-button"
                                   [routerLink]="['/administration/actor/' + actor.idActor]">
@@ -74,7 +72,7 @@ export class ListActorComponent implements OnInit {
   deleteActor(id: any) {
     this.actorService.delete(id).subscribe(res => {
       this.actorFilter = this.actors.filter(actor => actor.idActor !== id);
-      console.log('Actor id =' + id + ' delete satisfactory!');
+      console.log('Actor id = ' + id + ' delete satisfactory!');
     })
   }
 

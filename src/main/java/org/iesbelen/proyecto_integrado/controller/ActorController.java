@@ -2,6 +2,7 @@ package org.iesbelen.proyecto_integrado.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iesbelen.proyecto_integrado.domain.Actor;
+import org.iesbelen.proyecto_integrado.dto.ActorDTO;
 import org.iesbelen.proyecto_integrado.service.ActorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +27,10 @@ public class ActorController {
         return this.actorService.all();
     }
 
-    @PostMapping({"/newActor", "/newActor/"})
-    public Actor newActor(@RequestBody Actor actor) {
-        System.out.println(actor.toString());
-        return this.actorService.save(actor);
+    @PostMapping({"/newActor"})
+    public Actor newActor(@RequestBody ActorDTO actorDTO) {
+        log.info("Creando.... " + actorDTO);
+        return actorService.save(actorService.actorDTOtoActor(actorDTO));
     }
 
     @GetMapping("/{id}")
@@ -39,6 +40,7 @@ public class ActorController {
 
     @PutMapping("/replaceActor/{id}")
     public Actor replaceActor(@PathVariable("id") Long id, @RequestBody Actor actor) {
+        log.info("Modificando.... " + actor);
         return this.actorService.replace(id, actor);
     }
 

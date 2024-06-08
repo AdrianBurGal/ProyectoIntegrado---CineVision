@@ -11,6 +11,8 @@ import {Genre} from "../../../models/Genre";
 import {PurchaseService} from "../../../services/purchase.service";
 import {ScheduleService} from "../../../services/schedule.service";
 import {Ticket} from "../../../models/Ticket";
+import {LoginService} from "../../../services/login.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-details-film',
@@ -23,7 +25,7 @@ import {Ticket} from "../../../models/Ticket";
 
           <section id="contDetailFilm">
               <article id="contPhoto">
-                  <img src="{{ film.photoUrl }}" alt="filmPhoto">
+                  <img src="./../../../../assets/{{ film.photoUrl }}" alt="filmPhoto">
                   <div id="sinopsis" class="container">
                       <h1>About Movie</h1>
                       <hr>
@@ -37,7 +39,9 @@ import {Ticket} from "../../../models/Ticket";
                   <p> {{ film.releaseDate | date:'MMM. dd, yyyy' }} </p>
                   <div [innerHTML]="calculateStars(film.score)" id="score"></div>
                   <p> {{ film.duration }} min </p>
-                  <button><i class="fa-solid fa-play"></i> WATCH TRAILER</button>
+                  <button (click)="showTrailer()">
+                      <i class="fa-solid fa-play"></i> WATCH TRAILER
+                  </button>
 
                   <div id="details" class="container">
                       <h1>Movie Details</h1>
@@ -94,6 +98,7 @@ export class DetailsFilmComponent implements OnInit {
   filmService = inject(FilmService);
   purchaseService = inject(PurchaseService);
   scheduleService = inject(ScheduleService);
+  loginService = inject(LoginService);
   directors: Director[] = [];
   actors: Actor[] = [];
   schedules: Schedule[] = [];
@@ -101,7 +106,8 @@ export class DetailsFilmComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   backgroundImageUrl: String | undefined;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     this.filmService.find(Number(this.route.snapshot.params['id']))
@@ -126,8 +132,27 @@ export class DetailsFilmComponent implements OnInit {
 
   saveDetailsFilm(idSchedule: number) {
     this.scheduleService.find(idSchedule).subscribe(schedule => {
-      this.purchaseService.setPurchase({film: this.film, time: schedule.time.toString(), total: 0, tickets: new Map<number, Ticket[]>()})
-      this.router.navigate(['/movieTicket']);
+      this.purchaseService.setPurchase({
+        film: this.film,
+        time: schedule.time.toString(),
+        date: new Date().toLocaleDateString('en', {weekday: 'long', month: 'long', day: 'numeric'}),
+        total: 0,
+        tickets: new Map<number, Ticket[]>()
+      })
+
+      if (this.loginService.userLoginOn) {
+        this.router.navigate(['/movieTicket']);
+      } else {
+        this.router.navigate(['/administration/user/auth/login']);
+      }
     });
   }
+
+  showTrailer() {
+    Swal.fire({
+      html: `<iframe width="960" height="515" src="${this.film.trailer}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+      width: 'max-content',
+    });
+  }
+
 }

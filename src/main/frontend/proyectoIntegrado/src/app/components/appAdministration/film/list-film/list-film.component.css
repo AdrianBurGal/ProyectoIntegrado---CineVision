@@ -31,6 +31,14 @@
   text-align: center;
 }
 
+#sinopsis {
+  max-width: 300px;
+}
+
+#trailer {
+  max-width: 150px;
+}
+
 .custom-table th {
   background-color: #72467c;
   color: white;

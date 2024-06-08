@@ -25,6 +25,7 @@ public class Film {
     private String sinopsis;
     private Double score;
     private String photoUrl;
+    private String trailer;
 
     @OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Director> directors = new ArrayList<>();

@@ -12,14 +12,16 @@
   font-size: 20px;
 }
 
-#legend p i {
-  margin-right: 10px;
+#legend p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-#legend .fa-check {
-  padding: 5px 7px;
-  color: white;
-  background-color: #83ea83;
+#legend .seat {
+  /*background-color: #4cc94c;*/
+  background-color: #ff8200;
+  cursor: default;
 }
 
 #legend .fa-square-xmark {
@@ -37,7 +39,7 @@
   width: 75%;
   padding: 10px 70px;
   margin-bottom: 30px;
-  background-color: grey;
+  background-color: #72467c;
   color: white;
   font-size: 18px;
   border-radius: 0 0 5px 5px;
@@ -74,7 +76,7 @@
 }
 
 .seat.selected {
-  background-color: #4CAF50;
+  background-color: #ff8200;
 }
 
 #contSeats button {

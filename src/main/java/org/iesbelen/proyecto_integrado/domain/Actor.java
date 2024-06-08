@@ -18,8 +18,9 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_actor")
     private long idActor;
+
+    @Column(name = "name_actor")
     private String nameActor;
-    private String photoUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_film")

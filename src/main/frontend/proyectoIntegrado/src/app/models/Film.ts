@@ -11,6 +11,7 @@ export interface Film {
   sinopsis: String;
   score: number;
   photoUrl: string;
+  trailer: string;
   directors: Director[];
   actors: Actor[];
   schedules: Schedule[];

@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from "./components/appCinema/home/home.component";
-import {AppAdminComponent} from "./components/appAdministration/app-admin.component";
 import {ListFilmComponent} from "./components/appAdministration/film/list-film/list-film.component";
 import {EditFilmComponent} from "./components/appAdministration/film/edit-film/edit-film.component";
 import {DetailFilmComponent} from "./components/appAdministration/film/detail-film/detail-film.component";
@@ -21,10 +20,22 @@ import {CreateDirectorComponent} from "./components/appAdministration/director/c
 import {DetailDirectorComponent} from "./components/appAdministration/director/detail-director/detail-director.component";
 import {EditDirectorComponent} from "./components/appAdministration/director/edit-director/edit-director.component";
 import {ShowTicketComponent} from "./components/appCinema/show-ticket/show-ticket.component";
+import {SignUpComponent} from "./components/appAdministration/sign-up/sign-up.component";
+import {ListGenreComponent} from "./components/appAdministration/genre/list-genre/list-genre.component";
+import {CreateGenreComponent} from "./components/appAdministration/genre/create-genre/create-genre.component";
+import {DetailGenreComponent} from "./components/appAdministration/genre/detail-genre/detail-genre.component";
+import {EditGenreComponent} from "./components/appAdministration/genre/edit-genre/edit-genre.component";
+import {ListTicketComponent} from "./components/appAdministration/ticket/list-ticket/list-ticket.component";
+import {CreateTicketComponent} from "./components/appAdministration/ticket/create-ticket/create-ticket.component";
+import {DetailTicketComponent} from "./components/appAdministration/ticket/detail-ticket/detail-ticket.component";
+import {EditTicketComponent} from "./components/appAdministration/ticket/edit-ticket/edit-ticket.component";
+import {EditUserComponent} from "./components/appAdministration/user/edit-user/edit-user.component";
+import {DetailUserComponent} from "./components/appAdministration/user/detail-user/detail-user.component";
+import {CreateUserComponent} from "./components/appAdministration/user/create-user/create-user.component";
+import {ListUserComponent} from "./components/appAdministration/user/list-user/list-user.component";
 
 export const routes: Routes = [
   {path: '', title: 'CineVision', component: HomeComponent},
-  {path: 'administration', title: 'Administration', component: AppAdminComponent},
 
   {path: 'administration/films', title: 'FilmsAdministration', component: ListFilmComponent},
   {path: 'administration/films/newFilm', title: 'CreateFilmAdministration', component: CreateFilmComponent},
@@ -46,10 +57,25 @@ export const routes: Routes = [
   {path: 'administration/schedule/:id', title: 'DetailsScheduleAdministration', component: DetailScheduleComponent},
   {path: 'administration/schedule/replaceSchedule/:id', title: 'ReplaceScheduleAdministration', component: EditScheduleComponent},
 
+  {path: 'administration/genre', title: 'GenreAdministration', component: ListGenreComponent},
+  {path: 'administration/genre/newGenre', title: 'CreateGenreAdministration', component: CreateGenreComponent},
+  {path: 'administration/genre/:id', title: 'DetailsGenreAdministration', component: DetailGenreComponent},
+  {path: 'administration/genre/replaceGenre/:id', title: 'ReplaceGenreAdministration', component: EditGenreComponent},
+
+  {path: 'administration/ticket', title: 'TicketAdministration', component: ListTicketComponent},
+  {path: 'administration/ticket/newTicket', title: 'CreateTicketAdministration', component: CreateTicketComponent},
+  {path: 'administration/ticket/:id', title: 'DetailsTicketAdministration', component: DetailTicketComponent},
+  {path: 'administration/ticket/replaceTicket/:id', title: 'ReplaceTicketAdministration', component: EditTicketComponent},
+
+  {path: 'administration/user', title: 'UserAdministration', component: ListUserComponent},
+  {path: 'administration/user/newUser', title: 'CreateUserAdministration', component: CreateUserComponent},
+  {path: 'administration/user/:id', title: 'DetailsUserAdministration', component: DetailUserComponent},
+  {path: 'administration/user/replaceUser/:id', title: 'ReplaceUserAdministration', component: EditUserComponent},
+
   {path: 'details/:id', title: 'Details film', component: DetailsFilmComponent},
-  {path: 'movieTicket', title: 'Details film', component: FilmTicketComponent},
+  {path: 'movieTicket', title: 'Choose tickets', component: FilmTicketComponent},
   {path: 'movieTicket/tickets', title: 'Tickets', component: ShowTicketComponent},
 
-  {path: 'auth/login', title: 'Login', component: LoginComponent},
-  // {path: 'signup', title: 'SignUp', component: SignupComponent},
+  {path: 'administration/user/auth/login', title: 'Login', component: LoginComponent},
+  {path: 'administration/user/auth/signUp', title: 'SignUp', component: SignUpComponent},
 ];

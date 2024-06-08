@@ -25,8 +25,7 @@ export class ScheduleService {
   }
 
   create(schedule: Schedule): Observable<Schedule> {
-    console.log(schedule);
-    return this.httpClient.post<Schedule>(this.apiURL + "newSchedule", JSON.stringify(schedule), this.httpOptions)
+    return this.httpClient.post<Schedule>(this.apiURL + "newSchedule", schedule, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 

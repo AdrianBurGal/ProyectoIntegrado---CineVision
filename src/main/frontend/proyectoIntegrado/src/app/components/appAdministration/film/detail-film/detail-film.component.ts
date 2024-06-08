@@ -5,12 +5,12 @@ import {ActivatedRoute} from "@angular/router";
 import {FilmService} from "../../../../services/film.service";
 import {Observable} from "rxjs";
 import {Film} from "../../../../models/Film";
-import {AsyncPipe, NgIf} from "@angular/common";
+import {AsyncPipe, DatePipe, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-detail-film',
   standalone: true,
-  imports: [AsyncPipe, AdministrationComponent, HeaderAdminComponent, NgIf],
+  imports: [AsyncPipe, AdministrationComponent, HeaderAdminComponent, NgIf, DatePipe],
   template: `
       <div id="mainAdmin">
           <app-administration/>
@@ -32,7 +32,8 @@ import {AsyncPipe, NgIf} from "@angular/common";
                   </div>
                   <div class="form-group">
                       <label for="releaseDate">Release date:</label>
-                      <input type="text" id="releaseDate" name="releaseDate" value="{{film.releaseDate}}" readonly>
+                      <input type="text" id="releaseDate" name="releaseDate"
+                             value="{{film.releaseDate | date:'yyyy-MM-dd'}}" readonly>
                   </div>
                   <div class="form-group">
                       <label for="sinopsis">Sinopsis:</label>
@@ -45,6 +46,10 @@ import {AsyncPipe, NgIf} from "@angular/common";
                   <div class="form-group">
                       <label for="photoUrl">Photo URL:</label>
                       <input type="text" id="photoUrl" name="photoUrl" value="{{film.photoUrl}}" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label for="trailer">Trailer:</label>
+                      <input type="text" id="trailer" name="trailer" value="{{film.trailer}}" readonly>
                   </div>
               </form>
           </div>

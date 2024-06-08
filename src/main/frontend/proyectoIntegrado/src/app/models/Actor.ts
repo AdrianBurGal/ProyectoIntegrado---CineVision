@@ -1,5 +1,7 @@
+import {Film} from "./Film";
+
 export interface Actor {
   idActor: number;
   nameActor: string;
-  photoUrl: string;
+  film: Film;
 }

@@ -28,16 +28,6 @@ import {ActorService} from "../../../../services/actor.service";
                  class="error-message"> Actor is required
             </div>
           </div>
-          <div class="form-group">
-            <label for="photoUrl">URL of photo:</label>
-            <input type="url" id="photoUrl" name="photoUrl" formControlName="photoUrl">
-            <div *ngIf="submitted && form['photoUrl'].errors?.['required']"
-                 class="error-message">Photo URL is required
-            </div>
-            <div *ngIf="submitted && form['photoUrl'].errors?.['pattern']"
-                 class="error-message">Invalid URL format
-            </div>
-          </div>
           <button type="submit">Update</button>
         </form>
       </div>
@@ -56,7 +46,6 @@ export class EditActorComponent {
     this.actorForm = this.formBuilder.group({
       idActor: [''],
       nameActor: ['', Validators.required],
-      photoUrl: ['', Validators.required]
     });
   }
 

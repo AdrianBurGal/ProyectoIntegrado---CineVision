@@ -13,7 +13,9 @@ import {RouterLink} from "@angular/router";
   standalone: true,
   imports: [HeaderComponent, NgIf, NgForOf, FormsModule, CinemaSeatsComponent, ChooseTicketComponent, RouterLink],
   template: `
-      <app-header></app-header>
+      <div id="background">
+          <app-header></app-header>
+      </div>
       <section id="contMovieTicket">
           <app-cinema-seats></app-cinema-seats>
           <article id="showDetailsTickets">
@@ -21,7 +23,7 @@ import {RouterLink} from "@angular/router";
               <div id="contInfoMovie">
                   <h1>Purchase summary</h1>
                   <div id="infoMovie">
-                      <img src="{{purchase.film.photoUrl}}" alt="imageFilm">
+                      <img src="./../../../../assets/{{purchase.film.photoUrl}}" alt="imageFilm">
                       <div id="details">
                           <div id="titleFilm" class="container">
                               <h4>Film:</h4>
@@ -29,7 +31,7 @@ import {RouterLink} from "@angular/router";
                           </div>
                           <div id="date" class="container">
                               <h4>Date:</h4>
-                              <p>{{currentDate}}</p>
+                              <p> {{purchase.date}} </p>
                           </div>
                           <div id="schedule" class="container">
                               <h4>Schedule:</h4>
@@ -59,16 +61,9 @@ export class FilmTicketComponent implements OnInit {
 
   purchase!: Purchase;
   purchaseService = inject(PurchaseService);
-  currentDate: string = '';
 
   ngOnInit(): void {
     this.purchase = this.purchaseService.getPurchase();
-    this.updateCurrentDate();
-  }
-
-  updateCurrentDate() {
-    let today = new Date();
-    this.currentDate = today.toLocaleDateString('en', { weekday: 'long', month: 'long', day: 'numeric' });
   }
 
   getTicketsArray(): { name: string, count: number }[] {

@@ -16,7 +16,7 @@ import {Director} from "../../../../models/Director";
       <app-administration/>
       <div id="contTableAdmin">
         <app-header-admin/>
-        <h1>Details director</h1>
+        <h1>Details Director</h1>
         <form *ngIf="director | async as director">
           <div class="form-group">
             <label for="idDirector">ID:</label>
@@ -25,10 +25,6 @@ import {Director} from "../../../../models/Director";
           <div class="form-group">
             <label for="nameDirector">Director:</label>
             <input type="text" id="nameDirector" name="nameDirector" value="{{director.nameDirector}}" readonly>
-          </div>
-          <div class="form-group">
-            <label for="photoUrl">Photo URL:</label>
-            <input type="text" id="photoUrl" name="photoUrl" value="{{director.photoUrl}}" readonly>
           </div>
         </form>
       </div>

@@ -1,3 +1,7 @@
+#background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 #contMovieTicket {
   display: flex;
   margin: 40px 70px;

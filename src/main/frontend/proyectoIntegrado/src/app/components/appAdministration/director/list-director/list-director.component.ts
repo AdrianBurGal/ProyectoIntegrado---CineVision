@@ -25,7 +25,6 @@ import {DirectorService} from "../../../../services/director.service";
           <tr>
             <th>ID</th>
             <th>Director</th>
-            <th>Photo</th>
             <th>Actions</th>
           </tr>
           </thead>
@@ -34,7 +33,6 @@ import {DirectorService} from "../../../../services/director.service";
           <tr *ngFor="let director of directorFilter ">
             <td>{{ director.idDirector }}</td>
             <td>{{ director.nameDirector }}</td>
-            <td>{{ director.photoUrl }}</td>
             <td>
               <button class="show-button"
                       [routerLink]="['/administration/director/' + director.idDirector]">

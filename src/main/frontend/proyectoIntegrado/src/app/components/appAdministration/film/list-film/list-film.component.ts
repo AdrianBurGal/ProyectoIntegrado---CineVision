@@ -3,13 +3,13 @@ import {AdministrationComponent} from "../../administration/administration.compo
 import {HeaderAdminComponent} from "../../header-admin/header-admin.component";
 import {Film} from "../../../../models/Film";
 import {FilmService} from "../../../../services/film.service";
-import {NgForOf, NgIf} from "@angular/common";
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-list-film',
   standalone: true,
-  imports: [AdministrationComponent, HeaderAdminComponent, NgForOf, RouterLink, NgIf],
+  imports: [AdministrationComponent, HeaderAdminComponent, NgForOf, RouterLink, NgIf, DatePipe],
   template: `
       <div id="mainAdmin">
           <app-administration/>
@@ -17,7 +17,8 @@ import {RouterLink} from "@angular/router";
               <app-header-admin/>
               <div id="container01">
                   <h1>Films</h1>
-                  <button class="create-button" [routerLink]="['/administration/films/newFilm']"><i class="fa-solid fa-plus"></i></button>
+                  <button class="create-button" [routerLink]="['/administration/films/newFilm']"><i
+                          class="fa-solid fa-plus"></i></button>
               </div>
               <table class="custom-table">
                   <thead>
@@ -29,6 +30,7 @@ import {RouterLink} from "@angular/router";
                       <th>Sinopsis</th>
                       <th>Score</th>
                       <th>Photo</th>
+                      <th>Trailer</th>
                       <th>Actions</th>
                   </tr>
                   </thead>
@@ -37,11 +39,12 @@ import {RouterLink} from "@angular/router";
                   <tr *ngFor="let film of filmsFilter ">
                       <td>{{ film.idFilm }}</td>
                       <td>{{ film.title }}</td>
-                      <td>{{ film.duration }}</td>
-                      <td>{{ film.releaseDate }}</td>
-                      <td>{{ film.sinopsis }}</td>
+                      <td>{{ film.duration }} min</td>
+                      <td>{{ film.releaseDate | date:'yyyy-MM-dd' }}</td>
+                      <td id="sinopsis">{{ film.sinopsis }}</td>
                       <td>{{ film.score }}</td>
                       <td>{{ film.photoUrl }}</td>
+                      <td>{{ film.trailer.substring(30, 40) }}</td>
                       <td>
                           <button class="show-button"
                                   [routerLink]="['/administration/films/' + film.idFilm]">

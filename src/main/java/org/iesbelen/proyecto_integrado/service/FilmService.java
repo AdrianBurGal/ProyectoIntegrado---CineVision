@@ -1,14 +1,11 @@
 package org.iesbelen.proyecto_integrado.service;
 
 import org.iesbelen.proyecto_integrado.domain.Film;
-import org.iesbelen.proyecto_integrado.domain.Schedule;
 import org.iesbelen.proyecto_integrado.exception.FilmNotFoundException;
 import org.iesbelen.proyecto_integrado.repository.FilmRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class FilmService {
@@ -45,5 +42,4 @@ public class FilmService {
                 })
                 .orElseThrow(() -> new FilmNotFoundException(id));
     }
-
 }

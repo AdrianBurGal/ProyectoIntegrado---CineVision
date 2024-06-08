@@ -26,10 +26,6 @@ import {Actor} from "../../../../models/Actor";
                       <label for="nameActor">Actor:</label>
                       <input type="text" id="nameActor" name="nameActor" value="{{actor.nameActor}}" readonly>
                   </div>
-                  <div class="form-group">
-                      <label for="photoUrl">Photo URL:</label>
-                      <input type="text" id="photoUrl" name="photoUrl" value="{{actor.photoUrl}}" readonly>
-                  </div>
               </form>
           </div>
       </div>

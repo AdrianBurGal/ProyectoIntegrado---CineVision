@@ -1,19 +1,25 @@
 package org.iesbelen.proyecto_integrado.service;
 
+import org.iesbelen.proyecto_integrado.domain.Film;
 import org.iesbelen.proyecto_integrado.domain.Schedule;
+import org.iesbelen.proyecto_integrado.dto.ScheduleDTO;
 import org.iesbelen.proyecto_integrado.exception.ScheduleNotFoundException;
+import org.iesbelen.proyecto_integrado.repository.FilmRepository;
 import org.iesbelen.proyecto_integrado.repository.ScheduleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
+    private final FilmRepository filmRepository;
 
-    public ScheduleService(ScheduleRepository scheduleRepository) {
+    public ScheduleService(ScheduleRepository scheduleRepository, FilmRepository filmRepository) {
         this.scheduleRepository = scheduleRepository;
+        this.filmRepository = filmRepository;
     }
 
     public List<Schedule> all() {
@@ -42,4 +48,16 @@ public class ScheduleService {
                 })
                 .orElseThrow(() -> new ScheduleNotFoundException(id));
     }
+
+    public Schedule scheduleDTOtoSchedule(ScheduleDTO scheduleDTO) {
+
+        Schedule schedule = new Schedule();
+        schedule.setIdSchedule(scheduleDTO.getIdSchedule());
+        schedule.setTime(scheduleDTO.getTime());
+
+        Optional<Film> film = filmRepository.findById(scheduleDTO.getFilm().getIdFilm());
+        film.ifPresent(schedule::setFilm);
+        return schedule;
+    }
+
 }

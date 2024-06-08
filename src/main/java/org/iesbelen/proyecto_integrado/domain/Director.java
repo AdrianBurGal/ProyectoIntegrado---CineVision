@@ -19,7 +19,6 @@ public class Director {
     @Column(name = "id_director")
     private long idDirector;
     private String nameDirector;
-    private String photoUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_film")

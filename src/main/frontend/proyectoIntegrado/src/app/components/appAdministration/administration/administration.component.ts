@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {LoginService} from "../../../services/login.service";
+import {User} from "../../../models/User";
 
 @Component({
   selector: 'app-administration',
@@ -9,12 +11,12 @@ import { Component } from '@angular/core';
           <div id="cont01">
               <div id="contIcon">
                   <i class="fa-solid fa-film"></i>
-                  <p>CINE</p>
+                  <p>CINEVISION</p>
               </div>
               <div id="contUser">
-                  <h4 id="nameUser">Adrian Burgos Galvez</h4>
-                  <p id="emailUser">adrianburgosgalvezgmail.com</p>
-                  <img src="../../../../../assets/user.png" alt="photoUser">
+                  <h4 id="nameUser">{{ user?.firstname + " " + user?.lastname }}</h4>
+                  <p id="emailUser">{{ user?.username }}</p>
+                  <img src="../../../../../assets/userAdmin.webp" alt="photoUser">
               </div>
           </div>
           <div id="cont02">
@@ -33,11 +35,17 @@ import { Component } from '@angular/core';
                       <a href="/administration/director">
                           <li><i class="fa-solid fa-person"></i> Director</li>
                       </a>
-                      <a href="administration/schedule">
+                      <a href="/administration/schedule">
                           <li><i class="fa-regular fa-calendar"></i>Schedule</li>
                       </a>
                       <a href="/administration/genre">
                           <li><i class="fa-solid fa-compact-disc"></i>Genre</li>
+                      </a>
+                      <a href="/administration/ticket">
+                          <li><i class="fa-solid fa-ticket"></i>Ticket</li>
+                      </a>
+                      <a href="/administration/user">
+                          <li><i class="fa-solid fa-user"></i>User</li>
                       </a>
                   </ul>
               </nav>
@@ -47,5 +55,10 @@ import { Component } from '@angular/core';
   styleUrl: './administration.component.css'
 })
 export class AdministrationComponent {
+  loginService = inject(LoginService);
+  user?: User;
 
+  ngOnInit(): void {
+    this.user = this.loginService.currentUserValue;
+  }
 }

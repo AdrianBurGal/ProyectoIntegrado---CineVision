@@ -8,7 +8,7 @@ import {RouterLink} from "@angular/router";
   imports: [RouterLink],
   template: `
       <article class="cardFilm" routerLink="/details/{{ film.idFilm }}">
-          <img src="{{ film.photoUrl }}" alt="photoFilm">
+          <img src="./../../../../assets/{{ film.photoUrl }}" alt="photoFilm">
           <div class="contInfoFilm">
               <h4>{{ film.title }}</h4>
               <div class="info">

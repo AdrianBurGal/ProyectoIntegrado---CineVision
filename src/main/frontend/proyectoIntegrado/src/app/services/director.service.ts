@@ -25,8 +25,7 @@ export class DirectorService {
   }
 
   create(director: Director): Observable<Director> {
-    console.log(director);
-    return this.httpClient.post<Director>(this.apiURL + "newDirector", JSON.stringify(director), this.httpOptions)
+    return this.httpClient.post<Director>(this.apiURL + "newDirector", director, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
@@ -36,7 +35,7 @@ export class DirectorService {
   }
 
   update(id: number, director: Director): Observable<Director> {
-    return this.httpClient.put<Director>(this.apiURL + "replaceDirector/" + id, JSON.stringify(director), this.httpOptions)
+    return this.httpClient.put<Director>(this.apiURL + "replaceDirector/" + id, director, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 

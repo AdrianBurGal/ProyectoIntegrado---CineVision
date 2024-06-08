@@ -2,6 +2,7 @@ package org.iesbelen.proyecto_integrado.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iesbelen.proyecto_integrado.domain.Director;
+import org.iesbelen.proyecto_integrado.dto.DirectorDTO;
 import org.iesbelen.proyecto_integrado.service.DirectorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,9 @@ public class DirectorController {
     }
 
     @PostMapping({"/newDirector", "/newDirector/"})
-    public Director newDirector(@RequestBody Director director) {
-        System.out.println(director.toString());
-        return this.directorService.save(director);
+    public Director newDirector(@RequestBody DirectorDTO directorDTO) {
+        log.info("Creando.... " + directorDTO);
+        return this.directorService.save(directorService.directorDTOtoDirector(directorDTO));
     }
 
     @GetMapping("/{id}")
@@ -39,6 +40,7 @@ public class DirectorController {
 
     @PutMapping("/replaceDirector/{id}")
     public Director replaceDirector(@PathVariable("id") Long id, @RequestBody Director director) {
+        log.info("Modificando.... " + director);
         return this.directorService.replace(id, director);
     }
 

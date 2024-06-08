@@ -25,8 +25,7 @@ export class ActorService {
   }
 
   create(actor: Actor): Observable<Actor> {
-    console.log(actor);
-    return this.httpClient.post<Actor>(this.apiURL + "newActor", JSON.stringify(actor), this.httpOptions)
+    return this.httpClient.post<Actor>(this.apiURL + "newActor", actor, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 

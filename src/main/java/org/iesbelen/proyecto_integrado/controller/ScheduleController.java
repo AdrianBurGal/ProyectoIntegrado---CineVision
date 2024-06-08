@@ -2,6 +2,7 @@ package org.iesbelen.proyecto_integrado.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iesbelen.proyecto_integrado.domain.Schedule;
+import org.iesbelen.proyecto_integrado.dto.ScheduleDTO;
 import org.iesbelen.proyecto_integrado.service.ScheduleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,9 @@ public class ScheduleController {
     }
 
     @PostMapping({"/newSchedule", "/newSchedule/"})
-    public Schedule newSchedule(@RequestBody Schedule schedule) {
-        System.out.println(schedule.toString());
-        return this.scheduleService.save(schedule);
+    public Schedule newSchedule(@RequestBody ScheduleDTO scheduleDTO) {
+        log.info("Creando.... " + scheduleDTO);
+        return this.scheduleService.save(scheduleService.scheduleDTOtoSchedule(scheduleDTO));
     }
 
     @GetMapping("/{id}")

@@ -1,37 +1,50 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
-import {LoginService} from "../../../services/auth/login.service";
+import {LoginService} from "../../../services/login.service";
 import {NgIf} from "@angular/common";
+import {User} from "../../../models/User";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    RouterLink,
-    NgIf
-  ],
+  imports: [RouterLink, NgIf],
   template: `
       <header>
           <div id="logo">
               <a href="/"><i class="fa-solid fa-jedi"></i><span>CINEVISION</span></a>
           </div>
 
-          <nav *ngIf="!userLoginOn">
-              <ul>
-                  <li><a href="/administration/films">Administration</a></li>
-              </ul>
-          </nav>
-
           <div id="items">
-              <button id="register" routerLink="auth/register"><i class="fa-solid fa-user-pen"></i>Sign in</button>
               <div *ngIf="!userLoginOn">
-                  <button id="login" routerLink="auth/login"><i class="fas fa-sign-in-alt"></i>Login</button>
+                  <button id="register" routerLink="administration/user/auth/signUp">
+                      <i class="fa-solid fa-user-pen"></i>Sign in
+                  </button>
+              </div>
+              <div *ngIf="!userLoginOn">
+                  <button id="login" (click)="login()">
+                      <i class="fas fa-sign-in-alt"></i>Login
+                  </button>
               </div>
               <div *ngIf="userLoginOn">
-                  <button (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+                  <button (click)="logout()">
+                      <i class="fa-solid fa-right-from-bracket"></i>Logout
+                  </button>
               </div>
-              <i class="fa-solid fa-ticket" id="shopTickets"></i>
-              <span id="total">0</span>
+              <div class="user-container" *ngIf="userLoginOn && this.user?.rol?.toString() === 'NORMAL_USER'">
+                  <img src="../../../../../assets/userNormal.webp" alt="photoUser" class="userPhoto">
+                  <div class="user-info-dropdown">
+                      <h4><b>{{ this.user?.firstname + " " + this.user?.lastname }} </b></h4>
+                      <p> {{ this.user?.username }} </p>
+                  </div>
+              </div>
+              <div class="user-container" *ngIf="userLoginOn && this.user?.rol?.toString() === 'ADMIN_USER'">
+                  <img src="../../../../../assets/userAdmin.webp" alt="photoUser" class="userPhoto">
+                  <div class="user-info-dropdown">
+                      <h4><b>{{ this.user?.firstname + " " + this.user?.lastname }} </b></h4>
+                      <p> {{ this.user?.username }} </p>
+                      <a href="/administration/films">Administration </a>
+                  </div>
+              </div>
           </div>
       </header>
   `,
@@ -39,24 +52,31 @@ import {NgIf} from "@angular/common";
 })
 export class HeaderComponent implements OnInit {
 
+  user: User | undefined;
   userLoginOn: boolean = false;
-  constructor(private loginService: LoginService, private router: Router) {}
+
+  constructor(private loginService: LoginService, private router: Router) {
+  }
 
   ngOnInit() {
     this.loginService.currentUserLoginOn.subscribe({
       next: (userLoginOn) => {
         this.userLoginOn = userLoginOn;
+        this.user = this.getUser();
       }
     })
   }
 
   getUser() {
-
+    return this.loginService.currentUserValue;
   }
 
   logout() {
     this.loginService.logout();
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
 
+  login() {
+    this.router.navigate(['administration/user/auth/login']);
+  }
 }

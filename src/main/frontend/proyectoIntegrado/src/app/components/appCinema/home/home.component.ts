@@ -4,7 +4,6 @@ import {FilmComponent} from "../film/film.component";
 import {Film} from "../../../models/Film";
 import {FilmService} from "../../../services/film.service";
 import {NgForOf} from "@angular/common";
-import {Genre} from "../../../models/Genre";
 
 @Component({
   selector: 'app-home',
