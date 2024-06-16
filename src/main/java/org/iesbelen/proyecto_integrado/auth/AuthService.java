@@ -30,6 +30,7 @@ public class AuthService {
         if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             throw new UsernameDuplicateException("El email ya se encuentra registrado");
         }
+
         User user = User.builder()
                 .username(request.getUsername())
                 .lastname(request.getLastname())

@@ -4,7 +4,7 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {HeaderAdminComponent} from "../../header-admin/header-admin.component";
 import {Genre} from "../../../../models/Genre";
 import {RouterLink} from "@angular/router";
-import {GenreService} from "../../../../services/genreService";
+import {GenreService} from "../../../../services/genre.service";
 
 @Component({
   selector: 'app-list-genre',

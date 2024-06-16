@@ -9,7 +9,7 @@ import {ChooseTicketComponent} from "../choose-ticket/choose-ticket.component";
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-film-ticket',
+  selector: 'app-purchase',
   standalone: true,
   imports: [HeaderComponent, NgIf, NgForOf, FormsModule, CinemaSeatsComponent, ChooseTicketComponent, RouterLink],
   template: `
@@ -55,9 +55,9 @@ import {RouterLink} from "@angular/router";
           </article>
       </section>
   `,
-  styleUrl: './film-ticket.component.css'
+  styleUrl: './purchase.component.css'
 })
-export class FilmTicketComponent implements OnInit {
+export class PurchaseComponent implements OnInit {
 
   purchase!: Purchase;
   purchaseService = inject(PurchaseService);

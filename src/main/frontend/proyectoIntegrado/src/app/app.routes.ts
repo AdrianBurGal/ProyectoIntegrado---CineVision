@@ -10,7 +10,7 @@ import {ListScheduleComponent} from "./components/appAdministration/schedule/lis
 import {CreateScheduleComponent} from "./components/appAdministration/schedule/create-schedule/create-schedule.component";
 import {DetailScheduleComponent} from "./components/appAdministration/schedule/detail-schedule/detail-schedule.component";
 import {EditScheduleComponent} from "./components/appAdministration/schedule/edit-schedule/edit-schedule.component";
-import {FilmTicketComponent} from "./components/appCinema/film-ticket/film-ticket.component";
+import {PurchaseComponent} from "./components/appCinema/purchase/purchase.component";
 import {ListActorComponent} from "./components/appAdministration/actor/list-actor/list-actor.component";
 import {CreateActorComponent} from "./components/appAdministration/actor/create-actor/create-actor.component";
 import {DetailActorComponent} from "./components/appAdministration/actor/detail-actor/detail-actor.component";
@@ -73,7 +73,7 @@ export const routes: Routes = [
   {path: 'administration/user/replaceUser/:id', title: 'ReplaceUserAdministration', component: EditUserComponent},
 
   {path: 'details/:id', title: 'Details film', component: DetailsFilmComponent},
-  {path: 'movieTicket', title: 'Choose tickets', component: FilmTicketComponent},
+  {path: 'movieTicket', title: 'Choose tickets', component: PurchaseComponent},
   {path: 'movieTicket/tickets', title: 'Tickets', component: ShowTicketComponent},
 
   {path: 'administration/user/auth/login', title: 'Login', component: LoginComponent},

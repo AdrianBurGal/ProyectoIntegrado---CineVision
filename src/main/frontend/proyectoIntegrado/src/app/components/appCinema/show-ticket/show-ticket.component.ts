@@ -21,6 +21,7 @@ import {NgForOf} from "@angular/common";
           <div *ngFor="let ticket of getTickets()">
               <div id="ticket">
                   <div id="leftTicket">
+                      <p><b>{{ ticket.nameTicket }}</b></p>
                       <p>ROW: {{ ticket.seat.row }} </p>
                       <p>SEAT: {{ ticket.seat.seat }} </p>
                       <img src="./../../../../assets/barsCode.webp">

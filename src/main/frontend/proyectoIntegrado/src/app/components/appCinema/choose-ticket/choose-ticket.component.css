@@ -50,6 +50,12 @@ h1 {
   border: 0;
 }
 
+#priceTickets .contPrice button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 /**********************************************************************************************/
 
 .tooltip {

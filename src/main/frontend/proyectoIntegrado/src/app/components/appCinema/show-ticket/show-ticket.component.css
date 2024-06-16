@@ -45,9 +45,10 @@
 #ticket #leftTicket {
   display: flex;
   flex-direction: column;
+  gap: 2px;
   padding: 20px;
   font-size: 12px;
-  width: 210px;
+  width: 220px;
 }
 
 #ticket #leftTicket img {
