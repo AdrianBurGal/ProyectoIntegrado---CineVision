@@ -16,7 +16,7 @@ import {User} from "../../../models/User";
 
           <div id="items">
               <div *ngIf="!userLoginOn">
-                  <button id="register" routerLink="administration/user/auth/signUp">
+                  <button id="register" (click)="signin()">
                       <i class="fa-solid fa-user-pen"></i>Sign in
                   </button>
               </div>
@@ -78,5 +78,9 @@ export class HeaderComponent implements OnInit {
 
   login() {
     this.router.navigate(['administration/user/auth/login']);
+  }
+
+  signin() {
+    this.router.navigate(['administration/user/auth/signUp']);
   }
 }

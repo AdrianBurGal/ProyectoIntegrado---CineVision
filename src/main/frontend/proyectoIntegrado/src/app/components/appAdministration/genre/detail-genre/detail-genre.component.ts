@@ -4,7 +4,7 @@ import {AsyncPipe, DatePipe, NgIf} from "@angular/common";
 import {HeaderAdminComponent} from "../../header-admin/header-admin.component";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
-import {GenreService} from "../../../../services/genreService";
+import {GenreService} from "../../../../services/genre.service";
 import {Genre} from "../../../../models/Genre";
 
 @Component({

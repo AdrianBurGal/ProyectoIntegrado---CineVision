@@ -5,7 +5,7 @@ import {HeaderAdminComponent} from "../../header-admin/header-admin.component";
 import {NgIf} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Genre} from "../../../../models/Genre";
-import {GenreService} from "../../../../services/genreService";
+import {GenreService} from "../../../../services/genre.service";
 
 @Component({
   selector: 'app-edit-genre',

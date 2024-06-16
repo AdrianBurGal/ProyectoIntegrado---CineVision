@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {HeaderAdminComponent} from "../../header-admin/header-admin.component";
 import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
-import {GenreService} from "../../../../services/genreService";
+import {GenreService} from "../../../../services/genre.service";
 
 @Component({
   selector: 'app-create-genre',
